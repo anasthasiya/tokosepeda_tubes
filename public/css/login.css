@@ -1,0 +1,136 @@
+/* style.css */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: #ffe9ca; /* warna oranye muda */
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #f97316; /* orange Tailwind-style */
+    padding: 1rem 1.5rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 4rem;
+}
+
+.login-box {
+    display: flex;
+    background-color: white;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    width: 100%;
+}
+
+.login-image {
+    width: 50%;
+    display: none;
+}
+
+.login-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.login-content {
+    width: 100%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login-content img {
+    height: 64px;
+    margin: 0 auto;
+}
+
+.login-content h2 {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.login-content p {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+form {
+    margin-top: 1rem;
+}
+
+form label {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-weight: 500;
+    font-size: 0.875rem;
+}
+
+form input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    box-sizing: border-box;
+}
+
+button, .link-button {
+    display: block;
+    width: 100%;
+    background-color: #f97316; /* orange */
+    color: white;
+    font-weight: bold;
+    padding: 0.5rem;
+    border-radius: 4px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: 0.5rem;
+}
+
+.link-button:hover {
+    background-color: #ea580c;
+}
+
+.register-link {
+    text-align: center;
+    font-size: 0.875rem;
+    color: #555;
+    margin-top: 1rem;
+}
+
+.register-link a {
+    color: #3b82f6;
+    text-decoration: none;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
