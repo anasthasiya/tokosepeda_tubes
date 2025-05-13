@@ -1,6 +1,34 @@
 @extends('layouts.home')
 
 @section('content')
+@if(session('success'))
+    <div style="
+        position: fixed;
+        top: 25%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #ffffff;
+        color: #333;
+        padding: 30px 40px;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        z-index: 9999;
+        text-align: center;
+        width: 400px;
+        max-width: 90%;
+    ">
+        <div style="font-size: 18px; font-weight: bold; margin-bottom: 10px;">
+            ✔️Berhasil!
+        </div>
+        <div style="font-size: 15px; margin-bottom: 20px;">
+            {{ session('success') }}
+        </div>
+        <button onclick="this.parentElement.style.display='none';"
+            style="padding: 10px 20px; background-color: #orange; color: white; border: none; border-radius: 6px; cursor: pointer;">
+            OK
+        </button>
+    </div>
+@endif
 <section class="hero-slider">
     <input type="radio" name="slider" id="slide1" checked>
     <input type="radio" name="slider" id="slide2" >

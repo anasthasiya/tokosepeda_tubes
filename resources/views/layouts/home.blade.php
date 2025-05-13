@@ -17,6 +17,7 @@
         <a href="#products">Belanja</a>
         <a href="#blog">Blog</a>
         <a href="#contact">Kontak</a>
+        <a href="login">Keluar</a>
     </nav>
 </header>
 

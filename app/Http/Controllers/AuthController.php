@@ -17,17 +17,18 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         $credentials = $request->only('username', 'password');
+        
+        $loginType = filter_var($credentials['username'], FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
 
-        if (Auth::attempt($credentials)) {
+        if (Auth::attempt([$loginType => $credentials['username'], 'password' => $credentials['password']])) {
             $user = Auth::user();
+
             return $user->role === 'admin'
                 ? redirect()->route('dashboard')
                 : redirect()->route('home');
         }
-
-        return back()->withErrors(['username' => 'Username atau password salah.']);
+        return back()->withErrors(['username' => 'Username/email atau password salah.']);
     }
-
     public function showRegister()
     {
         return view('register');
@@ -36,24 +37,31 @@ class AuthController extends Controller
     public function register(Request $request)
     {
         $request->validate([
-            'username' => 'required|string|max:255|unique:user',
-            'password' => 'required|string|min:6|confirmed',
+            'username' => 'required|string|max:255|unique:users',
+            'email' => 'required|email|max:255|unique:users',
+            'nomor_telepon' => 'required|string|max:15',
+            'password' => 'required|string|min:6',
         ]);
+        $role = 'user';
+
+        $adminCount = User::where('role', 'admin')->count();
+        if ($adminCount === 0) {
+            $role = 'admin'; 
+        }
 
         $user = User::create([
             'username' => $request->username,
+            'email' => $request->email,
+            'nomor_telepon' => $request->nomor_telepon,
             'password' => Hash::make($request->password),
-            'role' => 'user',
+            'role' => $role,
         ]);
-
-        Auth::login($user);
-        return redirect()->route('login');
+        return redirect()->route('login')->with('success', 'Akun berhasil dibuat. Silakan login.');
     }
 
     public function logout()
     {
         Auth::logout();
         return redirect('/login');
- 
     }
 }

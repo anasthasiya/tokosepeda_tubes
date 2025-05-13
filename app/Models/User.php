@@ -9,9 +9,19 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
-    protected $table = 'user';
+
+    public function orders()
+{
+    return $this->hasMany(Order::class);
+}
+    protected $table = 'users';
+    
     protected $fillable = [
-        'username', 'password', 'role',
+    'username',
+    'email',
+    'nomor_telepon',
+    'password',
+    'role',
     ];
 
     protected $hidden = [

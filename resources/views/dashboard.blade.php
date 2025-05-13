@@ -83,10 +83,10 @@
     <div class="sidebar">
         <h3>Admin Panel</h3>
         <a href="#">Dashboard</a>
-        <a href="#">Kelola Produk</a>
+        <a href="">Kelola Produk</a>
         <a href="#">Kelola Pesanan</a>
         <a href="#">Kelola Pengguna</a>
-        <a href="#">Logout</a>
+        <a href="login">Keluar</a>
     </div>
 
     <div class="content">
